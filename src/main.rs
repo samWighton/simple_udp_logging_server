@@ -35,7 +35,7 @@ fn start_server(file: &mut File) -> std::io::Result<()> {
             match str::from_utf8(&buf[..amt]) {
                 Ok(s) => {
                     utc = chrono::Utc::now();
-                    match file.write_all(format!("{}|{}|{}|", utc, src, s.trim_end()).as_bytes()) {
+                    match file.write_all(format!("{}|{}|{}|\n", utc, src, s.trim_end()).as_bytes()) {
                         Err(why) => panic!("couldn't write to file: {}", why),
                         Ok(_) => {},
     }
