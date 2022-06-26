@@ -1,6 +1,20 @@
 # Simple UDP logging server
 
-## to install as a service
+A simple web server, written in Rust, that logs UDP messages to file
+
+Built as quick solution to get centralised logging in a distributed dev environment
+
+Creates a log file that looks like this:
+
+```
+2022-06-26 01:42:18.528808633 UTC|127.0.0.1:48759|{"widget":{"debug":"on","window":{"title":
+2022-06-26 01:43:04.672388102 UTC|127.0.0.1:51904|hello there|
+2022-06-26 01:44:32.618326564 UTC|204.127.25.52:58495|connection from remote machine|
+```
+
+Not written to the standard expected for production use
+
+## To install/run as a linux service
 
 copy built binary to here:
 
@@ -12,7 +26,7 @@ relable with this command:
 restorecon -Rv /usr/local/bin
 ```
 
-Create service file in this location
+Create a service file in this location
 /etc/systemd/system/simple_udp_logging_server.service
 with this contents
 
